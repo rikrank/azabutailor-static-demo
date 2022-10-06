@@ -6,7 +6,6 @@ module.exports = {
   watch: true,
   middleware: ssi({
     baseDir: "./dist",
-    ext: ".html",
-    version: "1.4.0"
+    ext: ".html"
   })
 }

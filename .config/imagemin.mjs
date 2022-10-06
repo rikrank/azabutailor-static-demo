@@ -11,7 +11,7 @@ import imageminGifsicle from "imagemin-gifsicle";
 const srcPath = isCont ? "cont/**" : "assets"
 const outPath = isCont ? "**" : "assets"
 
-const srcDir = `./src/${srcPath}/img/**/*.{jpg,jpeg,png,gif,svg}`;
+const srcDir = `./src/${srcPath}/img/**/*.{jpg,jpeg,png,gif,svg,pdf}`;
 const outDir = `./dist/${outPath}/img/**/*`;
 
 const regex = isCont ? /cont\// : /assets\//;
