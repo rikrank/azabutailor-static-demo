@@ -84,4 +84,4 @@ yarn release
 ### SCSS
 - ページ特有のスタイルを作成する場合は、`assets > scss > object > project` 配下にて
 「_ページ名-page」という命名に沿ってファイルを作成してください。（EX：_about-page.scss）
-- サイト全体で共通で使い回すパーツは`src > assets > ssi` にて作成してください。
+- サーバーサイドインクルードで流用するパーツは`src > assets > ssi` にて作成してください。
