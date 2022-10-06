@@ -1,0 +1,51 @@
+//- CSSのブレイクポイントに合わせて変数を設定
+- var sm = "(min-width: 375px)"
+- var md = "(min-width: 768px)"
+- var lg = "(min-width: 1028px)"
+- var xl = "(min-width: 1230px)"
+
+//- <source>タグを記述するためのmixinです。
+    +picture内にネストをして記述します。
+    media - [variable] ブレイクポイントを管理している変数を指定します。
+    source - [string]  画像へのパスを指定します。
+    Pug： +source(md, 'https://placehold.jp/600x600.png')
+    HTML： <source media="(min-width: 768px)" srcset="https://placehold.jp/600x600.png">
+    Pug： +source(none, "/assets/img/share/note01.webp", "image/webp")
+    HTML： <source srcset="/assets/img/share/note01.webp" type="image/webp">
+mixin source(media, source, type)
+  if media == none
+    source(srcset=source type=type)
+  else
+    source(media=media srcset=source)
+
+//- <picture>でアートディレクションを使うためのmixinで、picturefill.jsに依存しています。
+    引数は<img>に対する指定になります。
+    ブレイクポイントにmin-widthを指定しているので、+sourceは大きなサイズから記述する必要があります。
+    fallback - [string] 画像へのパスを指定します。
+    alt - [string]  alt属性値を指定します。
+    Pug： +picture("https://placehold.jp/300x300.png", "alt属性値を指定します。").responsiveImage
+           +source(lg, "https://placehold.jp/1000x1000.png")
+           +source(md, "https://placehold.jp/600x600.png")
+    HTML： <picture class="responsiveImage">
+             <source media="(min-width: 1080px)" srcset="https://placehold.jp/1000x1000.png">
+             <source media="(min-width: 768px)" srcset="https://placehold.jp/600x600.png">
+             <img src="https://placehold.jp/300x300.png" alt="alt属性値を指定します。">
+mixin picture(fallback, alt)
+  picture&attributes(attributes)
+    if block
+      block
+    img(src=fallback alt=alt)
+
+
+//- Webpの使用例
+  Pug: +picture("/assets/img/share/img_category_mv01_sp.jpg", "alt属性値を指定します。").responsiveImage
+         +source(md, "/assets/img/share/img_category_mv01.webp","image/webp")
+         +source(none, "/assets/img/share/img_category_mv01_sp.webp","image/webp")
+         +source(md, "/assets/img/share/img_category_mv01.jpg")
+  
+  HTML: <picture class="responsiveImage">
+          <source media="(min-width: 768px)" srcset="/assets/img/share/img_category_mv01.webp">
+          <source srcset="/assets/img/share/img_category_mv01_sp.webp" type="image/webp">
+          <source media="(min-width: 768px)" srcset="/assets/img/share/img_category_mv01.jpg">
+          <img src="/assets/img/share/img_category_mv01_sp.jpg" alt="alt属性値を指定します。">
+        </picture>

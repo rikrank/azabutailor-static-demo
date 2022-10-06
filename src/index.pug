@@ -1,0 +1,438 @@
+extends /_template/_layout
+
+block page
+  - var page = "home";
+
+block main
+  main#top.l-main
+    <section class="p-top-mv">
+      <div class="p-top-mv__inner">
+        <div class="swiper-container p-top-mv__swiper">
+          <div class="swiper-wrapper p-top-mv__swiper__carousel-unit">
+            - for (var x = 0; x < 4; x++)
+              <div class="p-top-mv__swiper-slide swiper-slide">
+                <div class="p-top-mv__swiper-slide__inner">
+                  <p class="p-top-mv__slide__txt">麻布テーラーが仕立てるのは、お客様が着たくなるお気に入りの一着です。
+                    <svg title="麻布テーラーが仕立てるのは、お客様が着たくなるお気に入りの一着です。" class="p-top-mv__card__icon" role="img" width="46" height="385">
+                      <use xlink:href="/assets/svg/sprite.svg#txt_mv_01"></use>
+                    </svg>
+                  </p>
+                  <picture class="p-top-mv__slide__img">
+                    <source srcset="" type="image/webp" width="295" height="385" />
+                    <img src='https://placehold.jp/295x385.jpg' alt='' width="295" height="385" />
+                  </picture>
+                </div>
+              </div>
+          </div>
+
+          <div class="p-top-mv__swiper__nav-unit">
+            <div class="p-top-mv__swiper-number-display">
+              <span class="p-top-mv__swiper-number-display__current"></span>
+              <span class="p-top-mv__swiper-number-display__slash">/</span>
+              <span class="p-top-mv__swiper-number-display__max"></span>
+            </div>
+            <div class="swiper-pagination p-top-mv__swiper-pagination"></div>
+            <div class="swiper-button-prev p-top-mv__swiper-button-prev">
+              <svg class="p-top-mv__swiper__arrow" role="img" width="21" height="11">
+                <use xlink:href="/assets/svg/sprite.svg#icon_slide_arrow-left"></use>
+              </svg>
+            </div>
+            <div class="swiper-button-next p-top-mv__swiper-button-next">
+              <svg class="p-top-mv__swiper__arrow" role="img" width="21" height="11">
+                <use xlink:href="/assets/svg/sprite.svg#icon_slide_arrow-right"></use>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="p-top-mv__link">
+          <a href="#" class="p-top-mv__link__body">
+            <picture class="p-top-mv__link__img">
+              <source srcset="" type="image/webp" width="50" height="60" />
+              <img src='https://placehold.jp/50x60.jpg' alt='' width="50" height="60" />
+            </picture>
+            <p class="p-top-mv__link__txt">オーダースーツ
+              <svg class="p-top-mv__link__icon" role="img" width="11" height="11">
+                <use xlink:href="/assets/svg/sprite.svg#icon_arrow"></use>
+              </svg>
+            </p>
+          </a>
+          <a href="#" class="p-top-mv__link__body">
+            <picture class="p-top-mv__link__img">
+              <source srcset="" type="image/webp" width="50" height="60" />
+              <img src='https://placehold.jp/50x60.jpg' alt='' width="50" height="60" />
+            </picture>
+            <p class="p-top-mv__link__txt">オーダースーツ
+              <svg class="p-top-mv__link__icon" role="img" width="11" height="11">
+                <use xlink:href="/assets/svg/sprite.svg#icon_arrow"></use>
+              </svg>
+            </p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="p-top-staff-blog">
+      <div class="p-top-staff-blog__inner">
+        <h2 class="p-top-heading l-container">
+          <span class="p-top-heading__en">STAFF STYLING</span>
+          <span class="p-top-heading__ja">お得な店舗情報やおすすめスタイルをご紹介</span>
+        </h2>
+        <div class="p-top-staff-blog__body u-scroll-bar-none">
+          //- - for (var x = 0; x < 4; x++)
+          //-   $class = "p-top-staff-blog__card";
+          //-   include locate_template('/template-parts/components/blog-card.php'); ?>
+        </div>
+        <div class="c-btn p-top-staff-blog__btn">
+          <a href="#">ブログをもっと見る</a>
+        </div>
+      </div>
+    </section>
+    <!-- /.p-top-staff-blog -->
+    <section class="p-top-about">
+      <div class="l-container p-top-about__inner">
+        <div class="p-top-about__feat-unit">
+          <figure class="p-top-about__img">
+            <picture>
+              <source srcset="" type="image/webp" width="215" height="215" />
+              <img src="https://placehold.jp/215x215.jpg" alt="" width="215" height="215" />
+            </picture>
+          </figure>
+          <h2 class="p-top-about__heading">麻布テーラーへようこそ<br aria-hidden="true" />オーダーについて</h2>
+          <p class="p-top-about__desc">麻布テーラーへようこそダミーコピーです。ダミーです。麻布テーラーへようこそダミーコピーです。ダミーです。麻布テーラーへようこそ</p>
+        </div>
+        <div class="p-top-about__obsession-unit">
+          <p class="p-top-about__txt">オーダーをご検討の方はこちら</p>
+          <div class="c-btn p-top-about__btn">
+            <a href="#"><strong>麻布テーラーのこだわり</strong><br aria-hidden="true" />・オーダーの流れ</a>
+          </div>
+          <div class="c-btn p-top-about__link">
+            <a href="#">近くの店舗を確認</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /.p-top-about -->
+    <section class="p-top-feature">
+      <div class="p-top-feature__inner">
+        <h2 class="p-top-heading l-container">
+          <span class="p-top-heading__en">STAFF STYLING</span>
+          <span class="p-top-heading__ja">お得な店舗情報やおすすめスタイルをご紹介</span>
+        </h2>
+        <div class="swiper-container p-top-feature__body">
+          <div class="swiper-wrapper">
+            - for (var x = 0; x < 4; x++)
+              <div class="p-top-feature__card swiper-slide">
+                <picture class="p-top-feature__card__img">
+                  <source srcset="" type="image/webp" width="225" height="330" />
+                  <img src='https://placehold.jp/225x330.jpg' alt='' width="225" height="330" />
+                </picture>
+                <p class="p-top-feature__card__txt">エクファイアスタイルシャツ</p>
+              </div>
+
+          </div>
+          <div class="swiper-pagination p-top-feature__swiper-pagination"></div>
+
+          <div class="swiper-button-prev p-top-feature__swiper-button-prev">
+            <svg class="p-top-store__card__icon" role="img" width="14" height="9">
+              <use xlink:href="/assets/svg/sprite.svg#icon_slide_arrow-left"></use>
+            </svg>
+          </div>
+          <div class="swiper-button-next p-top-feature__swiper-button-next">
+            <svg class="p-top-store__card__icon" role="img" width="14" height="9">
+              <use xlink:href="/assets/svg/sprite.svg#icon_slide_arrow-right"></use>
+            </svg>
+          </div>
+        </div>
+        <div class="c-btn p-top-feature__btn">
+          <a href="#">特集をもっとみる</a>
+        </div>
+      </div>
+    </section>
+    <!-- /.p-top-feature -->
+    <section class="p-top-item-category">
+      <div class="l-container p-top-item-category__inner">
+        <h2 class="p-top-heading">
+          <span class="p-top-heading__en">ITEM CATEGORY</span>
+          <span class="p-top-heading__ja">麻布テーラーの商品ラインナップ</span>
+        </h2>
+        <div class="p-top-item-category__body u-scroll-bar-none">
+          <a href="" class="p-top-item-category__card">
+            <figure class="p-top-item-category__card__img">
+              <picture>
+                <source srcset="/assets/img/img_category_01.webp" type="image/webp" width="155" height="200" />
+                <img src="/assets/img/img_category_01.jpg" alt="" width="155" height="200" />
+              </picture>
+            </figure>
+            <div class="p-top-item-category__card__body">
+              <span class="p-top-item-category__card__category">オーダーシャツ</span>
+              <span class="p-top-item-category__card__price">¥44,000-</span>
+            </div>
+          </a>
+          <a href="" class="p-top-item-category__card">
+            <figure class="p-top-item-category__card__img">
+              <picture>
+                <source srcset="/assets/img/img_category_02.webp" type="image/webp" width="155" height="200" />
+                <img src="/assets/img/img_category_02.jpg" alt="" width="155" height="200" />
+              </picture>
+            </figure>
+            <div class="p-top-item-category__card__body">
+              <span class="p-top-item-category__card__category">オーダーシャツ</span>
+              <span class="p-top-item-category__card__price">¥44,000-</span>
+            </div>
+          </a>
+          <a href="" class="p-top-item-category__card">
+            <figure class="p-top-item-category__card__img">
+              <picture>
+                <source srcset="/assets/img/img_category_03.webp" type="image/webp" width="155" height="200" />
+                <img src="/assets/img/img_category_03.jpg" alt="" width="155" height="200" />
+              </picture>
+            </figure>
+            <div class="p-top-item-category__card__body">
+              <span class="p-top-item-category__card__category">オーダーシャツ</span>
+              <span class="p-top-item-category__card__price">¥44,000-</span>
+            </div>
+          </a>
+          <a href="" class="p-top-item-category__card">
+            <figure class="p-top-item-category__card__img">
+              <picture>
+                <source srcset="/assets/img/img_category_04.webp" type="image/webp" width="155" height="200" />
+                <img src="/assets/img/img_category_04.jpg" alt="" width="155" height="200" />
+              </picture>
+            </figure>
+            <div class="p-top-item-category__card__body">
+              <span class="p-top-item-category__card__category">オーダーシャツ</span>
+              <span class="p-top-item-category__card__price">¥44,000-</span>
+            </div>
+          </a>
+          <a href="" class="p-top-item-category__card">
+            <figure class="p-top-item-category__card__img">
+              <picture>
+                <source srcset="/assets/img/img_category_05.webp" type="image/webp" width="155" height="200" />
+                <img src="/assets/img/img_category_05.jpg" alt="" width="155" height="200" />
+              </picture>
+            </figure>
+            <div class="p-top-item-category__card__body">
+              <span class="p-top-item-category__card__category">オーダーシャツ</span>
+              <span class="p-top-item-category__card__price">¥44,000-</span>
+            </div>
+          </a>
+          <a href="" class="p-top-item-category__card">
+            <figure class="p-top-item-category__card__img">
+              <picture>
+                <source srcset="/assets/img/img_category_06.webp" type="image/webp" width="155" height="200" />
+                <img src="/assets/img/img_category_06.jpg" alt="" width="155" height="200" />
+              </picture>
+            </figure>
+            <div class="p-top-item-category__card__body">
+              <span class="p-top-item-category__card__category">オーダーシャツ</span>
+              <span class="p-top-item-category__card__price">¥44,000-</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </section>
+    <!-- /.p-top-item-category -->
+
+    <section class="p-top-store">
+      <div class="p-top-store__inner">
+        <div class="p-top-store__about">
+          <div class="p-top-store__about__ttl">
+            <span class="p-top-store__about__lg-ttl">azabu<br aria-hidden="true" />tailor</span>
+            <span class="p-top-store__about__sm-ttl">.store</span>
+          </div>
+          <h2 class="p-top-store__about__heading">麻布テーラー公式オンラインストア
+            <svg class="p-top-store__card__icon" role="img" width="127" height="32">
+              <use xlink:href="/assets/svg/sprite.svg#txt_store_01"></use>
+            </svg>
+          </h2>
+          <p class="p-top-store__about__desc">スーツ用品からギフトカードまで取り揃え。スーツ用品からギフトカードまで取り揃え。</p>
+        </div>
+        <figure class="p-top-store__figure">
+          <picture>
+            <source srcset="/assets/img/img_store_01.webp" type="image/webp" width="375" height="350" />
+            <img src="/assets/img/img_store_01.jpg" alt="" width="375" height="350" />
+          </picture>
+        </figure>
+        <div class="p-top-store__products u-scroll-bar-none">
+          - for (var x = 0; x < 4; x++)
+            <div class="p-top-store__card">
+              <svg class="p-top-store__card__icon" role="img" width="26" height="31">
+                <use xlink:href="/assets/svg/sprite.svg#icon_pick-up"></use>
+              </svg>
+              <figure class="p-top-store__card__img">
+                <picture>
+                  <source src="">
+                  <img src="https://placehold.jp/125x125.jpg" alt="" width="125" height="125">
+                </picture>
+              </figure>
+              <div class="p-top-store__card__body">
+                <p class="p-top-store__card__ttl">ギフトカード</p>
+                <p class="p-top-store__card__desc">「オーダー」をプレゼントする新しいスタイルのギフトカード</p>
+              </div>
+            </div>
+        </div>
+        <div class="c-btn p-top-store__btn -lg -accent">
+          <a href="#">麻布テーラー公式オンラインストア</a>
+        </div>
+      </div>
+    </section>
+    <!-- /.p-top-store -->
+    <section class="p-top-styling">
+      <div class="l-container p-top-styling__inner">
+        <h2 class="p-top-heading">
+          <span class="p-top-heading__en">STAFF STYLING</span>
+          <span class="p-top-heading__ja">お仕立て時のご参考に</span>
+        </h2>
+        <div class="p-top-styling__body u-scroll-bar-none">
+          - for (var x = 0; x < 4; x++)
+            <div class="p-top-styling__card">
+              <picture class="p-top-styling__card__img">
+                <source srcset="" type="image/webp" width="235" height="535" />
+                <img src="https://placehold.jp/235x353.jpg" alt="" width="235" height="353" />
+              </picture>
+              <div class="p-top-styling__card__body">
+                <span class="p-top-styling__card__info">Press　篠塚 剛</span>
+                <p class="p-top-styling__card__desc">クラシックな雰囲気の中で、ロイヤルオックスフォード生地のシャツがラグジュアリーさも醸しています。</p>
+              </div>
+            </div>
+        </div>
+        <div class="c-btn p-top-styling__btn">
+          <a href="#">スタッフスタイリング</a>
+        </div>
+      </div>
+    </section>
+    <!-- /.p-top-styling -->
+    <div class="p-top-contents">
+      <div class="l-container">
+        - for (var x = 0; x < 4; x++)
+          <a href="#" class="p-media">
+            <figure class="p-media__img">
+              <picture>
+                <source srcset="" type="image/webp" width="335" height="175" />
+                <img src="https://placehold.jp/100x100.jpg" alt="" width="100" height="100" />
+              </picture>
+            </figure>
+            <div class="p-media__inner">
+              <p class="p-media__ttl">スタッフブログ</p>
+              <p class="p-media__txt">ダミーテキストダミーです。</p>
+            </div>
+          </a>
+      </div>
+    </div>
+    <!-- /.p-top-contents -->
+    <section class="p-top-partner">
+      <div class="l-container">
+        <h2 class="p-top-heading">
+          <span class="p-top-heading__en">OFFICIAL PARTNERaaaa</span>
+          <span class="p-top-heading__ja">特殊な体型のスポーツ選手からも<br aria-hidden="true">支持されています。
+          </span>
+        </h2>
+        <div class="p-top-partner__inner">
+          <a href="" class="p-top-partner__unit">
+            <figure class="p-top-partner__bnr">
+              <picture>
+                <source srcset="/assets/img/img_bnr_01.webp" type="image/webp" width="335" height="175" />
+                <img src='/assets/img/img_bnr_01.jpg' alt='' width="335" height="175" />
+              </picture>
+              <figcaption class="p-top-partner__figcaption">浦和レッズ オフィシャルパートナー</figcaption>
+            </figure>
+          </a>
+          <a href="" class="p-top-partner__unit">
+            <figure class="p-top-partner__bnr">
+              <picture>
+                <source srcset="/assets/img/img_bnr_02.webp" type="image/webp" width="335" height="175" />
+                <img src='/assets/img/img_bnr_02.jpg' alt='' width="335" height="175" />
+              </picture>
+            </figure>
+            <figcaption class="p-top-partner__figcaption">セレッソ大阪 オフィシャルパートナー</figcaption>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- /.p-top-partner -->
+    <section class="p-top-obsession">
+      <div class="l-container">
+
+      </div>
+    </section>
+    <!-- /.p-top-obsession -->
+
+    <section class="p-top-info">
+      <div class="p-top-info__inner l-container">
+        <div class="p-top-info__heading">
+          <h2 class="p-top-heading">
+            <span class="p-top-heading__en">INFORMATION</span>
+          </h2>
+          <a class="p-top-info__more" href="">もっと見る</a>
+        </div>
+        <dl class="p-top-info__list">
+          <div class="p-top-info__news-unit">
+            <dt class="p-top-info__date"><time date-time="2022.08.08">2022.08.08</time></dt>
+            <dd class="p-top-info__title"><a href="">オーダーレザーブルゾンオプションフェア</a></dd>
+          </div>
+          <div class="p-top-info__news-unit">
+            <dt class="p-top-info__date"><time date-time="2022.08.08">2022.08.08</time></dt>
+            <dd class="p-top-info__title"><a href="">オーダーレザーブルゾンオプションフェア</a></dd>
+          </div>
+          <div class="p-top-info__news-unit">
+            <dt class="p-top-info__date"><time date-time="2022.08.08">2022.08.08</time></dt>
+            <dd class="p-top-info__title"><a href="">オーダーレザーブルゾンオプションフェア</a></dd>
+          </div>
+          <div class="p-top-info__news-unit">
+            <dt class="p-top-info__date"><time date-time="2022.08.08">2022.08.08</time></dt>
+            <dd class="p-top-info__title"><a href="">オーダーレザーブルゾンオプションフェア</a></dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+    <!-- /.p-top-info -->
+
+    <div class="p-top-link">
+      <div class="l-container">
+        <div class="p-top-link__banner">
+          <a href="" class="p-top-link__bnr-link">
+            <figure><img src='https://placehold.jp/335x100.jpg' alt='' width="335" height="100" /></figure>
+          </a>
+          <a href="" class="p-top-link__bnr-link">
+            <figure><img src='https://placehold.jp/335x100.jpg' alt='' width="335" height="100" /></figure>
+          </a>
+          <a href="" class="p-top-link__bnr-link">
+            <figure><img src='https://placehold.jp/335x100.jpg' alt='' width="335" height="100" /></figure>
+          </a>
+        </div>
+        <ul class="p-top-link__social-list">
+          <li class="p-top-link__social-item"><a href=""><img src="https://placehold.jp/40x40.jpg" width="40" height="40" alt=""></a></li>
+          <li class="p-top-link__social-item"><a href=""><img src="https://placehold.jp/40x40.jpg" width="40" height="40" alt=""></a></li>
+          <li class="p-top-link__social-item"><a href=""><img src="https://placehold.jp/40x40.jpg" width="40" height="40" alt=""></a></li>
+          <li class="p-top-link__social-item"><a href=""><img src="https://placehold.jp/40x40.jpg" width="40" height="40" alt=""></a></li>
+          <li class="p-top-link__social-item"><a href=""><img src="https://placehold.jp/40x40.jpg" width="40" height="40" alt=""></a></li>
+        </ul>
+        <div class="p-top-link__sub">
+          <a href="" class="p-top-link__sub__link">
+            <img src="https://placehold.jp/50x60.jpg" width="50" height="60" alt="">
+            <div class="p-top-link__sub__body">
+              <span class="p-top-link__sub__text">ダミー店舗一覧</span>
+              <span class="p-top-link__sub__title">店舗一覧
+                <svg class="icon" role="img" width="11" height="11">
+                  <use xlink:href="/assets/svg/sprite.svg#icon_arrow"></use>
+                </svg>
+              </span>
+            </div>
+          </a>
+          <a href="" class="p-top-link__sub__link">
+            <img src="https://placehold.jp/44x60.jpg" width="44" height="60" alt="">
+            <div class="p-top-link__sub__body">
+              <span class="p-top-link__sub__text">ダミー店舗一覧</span>
+              <span class="p-top-link__sub__title">来店予約
+                <svg class="icon" role="img" width="11" height="11">
+                  <use xlink:href="/assets/svg/sprite.svg#icon_arrow"></use>
+                </svg>
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+

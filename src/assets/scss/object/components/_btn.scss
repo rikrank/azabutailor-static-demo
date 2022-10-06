@@ -1,0 +1,46 @@
+@use "../../setting/" as *;
+
+.c-btn {
+  text-align: center;
+
+  a {
+    display: inline-block;
+    width: 100%;
+    max-width: 235px;
+    padding: 1.15rem 0;
+    font-size: 1.5rem;
+    line-height: 1;
+    text-align: center;
+    border: 1px solid $colorBtnBorder;
+    border-radius: 9999px;
+
+    @include hoverAnim;
+  }
+
+  &.-icon {
+    a {
+      width: 100%;
+      max-width: 315px;
+      color: $colorWhite;
+      text-align: center;
+      background-color: $colorGrayBase;
+    }
+
+    svg {
+      margin-right: 10px;
+    }
+  }
+
+  &.-lg {
+    a {
+      max-width: 315px;
+    }
+  }
+
+  &.-accent {
+    a {
+      color: $colorWhite;
+      background-color: $colorGrayBase;
+    }
+  }
+}

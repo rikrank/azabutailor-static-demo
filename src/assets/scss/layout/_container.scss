@@ -1,0 +1,7 @@
+@use "../setting" as *;
+
+.l-container {
+  width: calc(100% - 20px * 2);
+  margin-right: auto;
+  margin-left: auto;
+}

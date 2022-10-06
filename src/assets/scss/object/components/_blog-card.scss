@@ -1,0 +1,38 @@
+@use "../../setting/" as *;
+
+.p-blog-card__img {
+  img {
+    border-radius: 23px;
+  }
+}
+
+.p-blog-card__location,
+.p-blog-card__date {
+  display: block;
+}
+
+.p-blog-card__location {
+  font-size: 1.3rem;
+}
+
+.p-blog-card__inner {
+  * {
+    margin-top: 8px;
+    line-height: 1;
+  }
+}
+
+.p-blog-card__date {
+  margin-top: 12px;
+}
+
+.p-blog-card__title {
+  font-size: 1.3rem;
+  line-height: 1.4;
+
+  @include lineHeight(1.4);
+}
+
+.p-blog-card__date {
+  font-size: 1.1rem;
+}

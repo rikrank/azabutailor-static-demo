@@ -1,0 +1,19 @@
+header.l-header
+  .l-header__announce-bar
+    span.l-header__announce-bar__txt 新型コロナウイルス感染防止対策につきまして
+  .l-header__inner
+    nav.l-header__nav
+      ul.l-header__list
+        li.l-header__item
+          img.l-header__logo(src="/assets/img/logo_header_main.png" alt="" width="183" height="17")
+        li.l-header__item.-shop-link
+          a(href="./")
+            svg.l-header__bag-icon(role="img" width="11" height="14")
+              use(xlink:href="/assets/svg/sprite.svg#icon_bag")
+            - オンライン
+        li.l-header__item
+          button#js-header-btn.l-header__btn
+            span
+
+  .l-header__menu
+    nav.l-header__menu__nav

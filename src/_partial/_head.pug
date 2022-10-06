@@ -1,0 +1,52 @@
+head
+  meta(charset="UTF-8")
+  meta(content="IE=edge" http-equiv="X-UA-Compatible")
+  meta(content="width=device-width, initial-scale=1.0" name="viewport")
+  title= meta[page]["title"] + " | " + meta[page]["backTitle"]
+  meta(content=meta[page]["description"], name="description")
+  meta(content=meta[page]["keywords"], name="keywords")
+  //- meta(content="noindex" name="robots")
+  link(rel="shortcut icon" href="/assets/img/favicon.png")
+
+  block preload
+    //- ページ共通webフォントなどをpreload読み込む
+    //- 例
+    //- link(as="font", crossorigin, href="https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:wght@700&family=Noto+Sans+JP:wght@400;500&family=Outfit:wght@700&display=swap" rel="preload")
+    //- link(as="video", href=`${imgPathTop}/mainvisual/video_mainvisual.mp4`, rel="preload")
+    //- link(as="image", href=`${imgPathTop}/mainvisual/img_mainvisual_01.svg`, rel="preload")
+    //- link(as="image", href=`${imgPathTop}/mainvisual/img_mainvisual_02.svg`, rel="preload")
+
+  block css
+    link(
+      href="https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:wght@700&family=Noto+Sans+JP:wght@400;500;700&family=Outfit:wght@400;600;700&display=swap",
+      rel="stylesheet"
+    )
+    //- link(href="/assets/css/common.css" rel="stylesheet")
+    link(href="/assets/css/style.css" rel="stylesheet")
+
+  link(href=meta[page]["url"], rel="canonical")
+
+  meta(content="telephone=no" name="format-detection")
+
+  meta(content=meta[page]["title"] + " | " + meta[page]["backTitle"], property="og:title")
+  meta(content=meta[page]["ogpType"], property="og:type")
+  meta(content=meta[page]["url"] + meta[page]["ogpImage"], property="og:image")
+  meta(content=meta[page]["url"], property="og:url")
+  meta(content=meta[page]["description"], property="og:description")
+  meta(content=meta[page]["title"], property="og:site_name")
+  meta(content="ja" property="og:locale")
+
+  if meta[page]['fbAppId']
+    meta(content=meta[page]["fbAppId"], property="fb:app_id")
+  else if meta[page]['fbAdmins']
+    meta(content=meta[page]["fbAdmins"], property="fb:admins")
+
+  if meta[page]['twitterCard']
+    meta(content=meta[page]["twitterCard"], name="twitter:card")
+  if meta[page]['twitterSite']
+    meta(content=meta[page]["twitterSite"], name="twitter:site")
+  if meta[page]['twitterImage']
+    meta(content=meta["home"]["url"] + meta[page]["twitterImage"], name="twitter:image")
+
+  script.
+    document.documentElement.classList.remove("no-js");

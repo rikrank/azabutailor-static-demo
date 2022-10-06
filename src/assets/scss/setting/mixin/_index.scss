@@ -1,0 +1,340 @@
+@charset "UTF-8";
+@use "sass:math";
+@use "../variable" as *;
+
+/* ========================================
+  Mixin, Function
+======================================== */
+
+// Media Query メディアクエリ
+// ex) @include mq(md){}
+// --------------------------------------------------
+
+// @mixinでメディアクエリを呼び出す
+@mixin mq($breakpoint) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+// Size Auto Calculation サイズ自動計算
+// --------------------------------------------------
+
+// vw function SPデザイン幅基準のサイズ(767)
+// ex) width: get_vw(100);
+@function get_vw($size, $viewport: 767) {
+  $rate: math.div(100, $viewport);
+
+  @return $rate * $size * 1vw;
+}
+
+@mixin lineHeight($line-height) {
+  &::before,
+  &::after {
+    display: block;
+    width: 0;
+    height: 0;
+    content: "";
+  }
+
+  &::before {
+    margin-top: calc((1 - #{$line-height}) * 0.5em); //文字上の余白を消す
+  }
+
+  &::after {
+    margin-bottom: calc((1 - #{$line-height}) * 0.5em); //文字下の余白を消す
+  }
+}
+
+// Photoshopトラッキング（文字詰め）制御
+// Photoshopのトラッキング値をletter-spacingへ変換
+// ex) letter-spacing: tracking(50);
+@function tracking($value) {
+  @return ($value / 1000) * 1em;
+}
+
+// font-size mixin
+// ex) @include fz_vw(20);
+@mixin fz_vw($font_size: 10) {
+  font-size: get_vw($font_size);
+}
+
+// margin-bottom mixin
+// ex) @include mgbtm_vw(20);
+@mixin mgbtm_vw($mg_btm: 10) {
+  margin-bottom: get_vw($mg_btm);
+}
+
+// padding-bottom mixin
+// ex) @include pdbtm_vw(20);
+@mixin pdbtm_vw($pd_btm: 10) {
+  padding-bottom: get_vw($pd_btm);
+}
+
+// Form Reset フォームリセット
+// ブラウザ毎のデザインを初期化(_base.scssで全体初期化可能)
+// ex) @include form_reset;
+// --------------------------------------------------
+@mixin form_reset {
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  appearance: none;
+}
+
+// Form Placeholder Color フォームプレイスホルダーカラー
+// プレイスホルダーの文字色変更
+// ex) @include placeholder_color(#07f);
+// --------------------------------------------------
+@mixin placeholder_color($color) {
+  &:placeholder-shown {
+    color: $color;
+  }
+
+  &::input-placeholder {
+    color: $color;
+  }
+
+  &:placeholder {
+    color: $color;
+    opacity: 1;
+  }
+
+  &::placeholder {
+    color: $color;
+    opacity: 1;
+  }
+
+  &:input-placeholder {
+    color: $color;
+  }
+}
+
+// Hide Text テキスト非表示
+// h1ロゴ画像へ付与したテキストを非表示
+// ex) @include text_hidden;
+// --------------------------------------------------
+@mixin text_hidden {
+  overflow: hidden;
+  text-indent: 200%;
+  white-space: nowrap;
+}
+
+// Centering Position
+// 親要素に対してセンタリングする
+// ex) @include centerPosition(x);
+// ----------------------------------
+@mixin centerPosition($direction) {
+  position: absolute;
+
+  // 上下左右中央に配置
+  @if $direction == xy {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  // 左右中央に配置
+  @else if $direction == x {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  // 上下中央に配置
+  @else if $direction == y {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+// Background Image
+// backgroundのプロパティの記述を省略
+// ex) @include background-image(bg01 + ".jpg");
+// ----------------------------------
+// 変数に画像フォルダまでのパスを設定
+$pathImg: "/assets/img/" !default;
+
+@mixin background-image($fileName) {
+  // ↓ フォルダまでのパス + 画像名 でパスの記載を省略
+  background-image: url($pathImg + $fileName);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+// Triangle Icon 三角形
+// 疑似要素の三角形を作成
+// ex) @include triangle(right, 20px, 20px, #000 )
+// ----------------------------------
+@mixin triangle($direction, $width, $height, $color) {
+  $valWidth: $width / 2;
+  $valHeight: $height / 2;
+
+  width: 0;
+  height: 0;
+  border-style: solid;
+
+  @if $direction == top {
+    border-width: 0 $valWidth $height $valWidth;
+    border-color: transparent transparent $color transparent;
+  } @else if $direction == left {
+    border-width: $valHeight $width $valHeight 0;
+    border-color: transparent $color transparent transparent;
+  } @else if $direction == right {
+    border-width: $valHeight 0 $valHeight $width;
+    border-color: transparent transparent transparent $color;
+  } @else if $direction == bottom {
+    border-width: $height $valWidth 0 $valWidth;
+    border-color: $color transparent transparent transparent;
+  }
+}
+
+// Arrow Icon 矢印アイコン
+// 疑似要素の矢印アイコンを作成
+// 引数に(方向, 幅, 高さ, 太さ, 色)を指定
+// ex) @include arrow(top, 20px, 20px, 1px, #000)
+// ----------------------------------
+@mixin arrow($direction, $width, $height, $border, $color) {
+  width: $width;
+  height: $height;
+  border: $border solid;
+
+  @if $direction == top {
+    border-color: $color $color transparent transparent;
+    transform: rotate(-45deg);
+  } @else if $direction == left {
+    border-color: transparent transparent $color $color;
+    transform: rotate(45deg);
+  } @else if $direction == right {
+    border-color: $color $color transparent transparent;
+    transform: rotate(45deg);
+  } @else if $direction == bottom {
+    border-color: transparent transparent $color $color;
+    transform: rotate(-45deg);
+  }
+}
+
+// Z-index管理
+// ex) z-index: z(header);
+// ----------------------------------
+// 要素毎の順番指定
+$z-map: (header, nav, navbtn);
+
+@function z($name) {
+  @return index($z-map, $name);
+}
+
+/**
+ * ViewportScale v0.2.1
+ * Copyright (c) 2018 Kite
+ * MIT License
+ * https://github.com/ixkaito/viewportscale
+ * https://speakerdeck.com/ixkaito/taipogurahuibesituku-plus-dezainaidea?slide=52
+ */
+
+// スクリーンサイズに応じた自然な縮小
+// ex) @include vs($property, $min-viewport-width, $min-size, $max-viewport-width, $max-size);
+// ex) @include vs(font-size, 320px, 32px, 960px, 48px);
+// ex) @include vs(padding, 320px, 16px, 960px, 24px);
+// ----------------------------------
+@function strip-unit($value) {
+  @return math.div($value, $value * 0 + 1);
+
+  // @return $value / ($value * 0 + 1);
+}
+
+@mixin vs($property, $min-vp, $min-length, $max-vp, $max-length, $vp-unit: "vw") {
+  $u1: unit($min-vp);
+  $u2: unit($min-length);
+  $u3: unit($max-vp);
+  $u4: unit($max-length);
+  $a: strip-unit($min-vp);
+  $b: strip-unit($min-length);
+  $c: strip-unit($max-vp);
+  $d: strip-unit($max-length);
+
+  @if $u1==$u3 and $u2==$u4 {
+    // $x: ($d - $b) / ($c - $a) * 100#{$vp-unit};
+    // $y: ($c * $b - $a * $d) / ($c - $a) * 1#{$u2};
+    $x: math.div($d - $b, $c - $a) * 100#{$vp-unit};
+    $y: math.div($c * $b - $a * $d, $c - $a) * 1#{$u2};
+
+    #{$property}: $min-length;
+
+    @media screen and (min-width: $min-vp) {
+      @if $y==0 {
+        #{$property}: $x;
+      } @else {
+        #{$property}: calc(#{$x} + #{$y});
+      }
+    }
+
+    @media screen and (min-width: $max-vp) {
+      #{$property}: $max-length;
+    }
+  }
+}
+
+// Hover opacity
+// aタグホバー時に要素を透過させる
+// ex) @include alpha(.8)
+// --------------------------------------------------
+@mixin alpha($opacity: 0.7) {
+  &:hover,
+  &:focus {
+    filter: alpha(opacity=#{$opacity * 100});
+    -moz-opacity: $opacity;
+    opacity: $opacity;
+  }
+}
+
+// Under line
+// 複数行のテキストに下線を引く
+// ex) @include underLine(#07f, 65%);
+// --------------------------------------------------
+@mixin underLine($color, $height) {
+  display: inline;
+  background: linear-gradient(transparent $height, $color 0%);
+}
+
+// Clear fix
+// floatの解除
+// ex) @include cf;
+// --------------------------------------------------
+@mixin cf {
+  &::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}
+
+// Gradation
+// 2色で均等の割合で色が変化するシンプルなグラデーション
+// ex) @include gradient(#fccf00, #002b69, ttob);
+// --------------------------------------------------
+@mixin gradient($startColor, $endColor, $orientation: ttob) {
+  background: $startColor;
+
+  // 縦方向
+  @if $orientation==ttob {
+    background: linear-gradient(to bottom, #{$startColor} 0%, #{$endColor} 100%);
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr="#{$startColor}", endColorstr=" #{$endColor}", GradientType=0);
+  }
+
+  // 横方向
+  @else if $orientation==ltor {
+    background: linear-gradient(to right, #{$startColor} 0%, #{$endColor} 100%);
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr="#{$startColor}", endColorstr=" #{$endColor}", GradientType=1);
+  }
+}
+
+@mixin hoverAnim {
+  transition: $baseTransition;
+
+  @media (hover: hover) {
+    &:hover {
+      opacity: $baseOpacity;
+    }
+  }
+}

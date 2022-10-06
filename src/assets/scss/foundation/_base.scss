@@ -1,0 +1,20 @@
+@use "../setting" as *;
+
+:root {
+  --base-text-font-family: #{$baseFontFamily};
+  --base-text-font-size-sp: #{$baseFontSizeSP};
+  --base-text-font-size-pc: #{$baseFontSizePC};
+  --base-text-color: #{$colorBlack};
+  --base-lin-height: #{$baseLineHeight};
+}
+
+body,
+html {
+  font-family: var(--base-text-font-family);
+  font-size: 62.5%;
+}
+
+// img {
+//   width: 100%;
+//   height: auto;
+// }

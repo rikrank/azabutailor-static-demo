@@ -1,0 +1,15 @@
+include /_data/_pagedata
+
+- var imgPathTop = "/assets/img/top";
+
+block page
+doctype html
+html(lang="ja")
+  include /_partial/_head
+  body
+    .l-wrapper
+      //- header and footer output by ssi
+      <!--#include virtual="/assets/ssi/header.html" -->
+      block main
+      <!--#include virtual="/assets/ssi/footer.html" -->
+      include /_partial/_script

@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+// =========================================
+// Foundation
+// =========================================
+@use "../../../node_modules/destyle.css/destyle.min.css";
+@use "../../../node_modules/swiper/swiper-bundle.min.css";
+@use "./foundation/base";
+
+// ========================================
+//  Layout（プロジェクト共通のコンテナーブロックのスタイルを定義）
+//========================================
+
+@use "./layout/container";
+@use "./layout/header";
+@use "./layout/footer";
+
+// =======================================
+//  Component（複数ページで使用する最小パーツ）
+//========================================
+@use "./object/components/btn";
+@use "./object/components/blog-card";
+@use "./object/components/media";
+
+// ========================================
+//  Project（ページ特有のスタイル）
+//========================================
+@use "./object/project/top-page";
+@use "./object/project/example-page";
+
+// ========================================
+//  Utility（ヘルパークラス）
+//========================================
+@use "./object/utility/margin";
+@use "./object/utility/display";
+@use "./object/utility/text-align";
+@use "./object/utility/scroll-bar";
+
+// ========================================
+// Lib（ライブラリ上書き用のスタイル）
+// ========================================
+@use "./lib/swiper";

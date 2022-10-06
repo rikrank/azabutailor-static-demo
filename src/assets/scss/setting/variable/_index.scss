@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+/* ========================================
+  Variable
+======================================== */
+
+// Breakpoint ブレイクポイント
+$breakpoints: (
+  "sm": "screen and (min-width: 375px)",
+  "sp-only": "screen and (max-width: 768px)",
+  "md": "screen and (min-width: 768px)",
+  "lg": "screen and (min-width: 1028px)",
+  "xl": "screen and (min-width: 1230px)",
+) !default;
+
+// Content Width Variable コンテンツ幅変数
+// ex) width: $cntWidth;
+// --------------------------------------------------
+$cntWidth: 1200px !default;
+
+// Font Variable フォント変数
+// ex) font-size: $baseFontSize;
+// --------------------------------------------------
+$baseFontSizePC: 16px !default;
+$baseFontSizeSP: 15px !default;
+$baseFontFamily: "Noto Sans JP", "Noto Serif JP", "Helvetica Neue", arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans",
+  meiryo, sans-serif !default;
+
+// Color Variable カラー変数
+// ex) color: $baseColor;
+// --------------------------------------------------
+$colorBlack: #000 !default;
+$colorGrayBase: #7c7973 !default;
+$colorGrayLighter: #d5d5d5 !default;
+$colorGrayDark: #797979 !default;
+$colorWhite: #fff !default;
+$colorBtnBorder: #d6d2c8 !default;
+
+// Transition トランジション変数
+// ex) transition: $baseTransition;
+// --------------------------------------------------
+$baseOpacity: 0.8 !default;
+$baseTransition: 0.4s !default;
+
+// Transition トランジション変数
+// ex) transition: $baseTransition;
+// --------------------------------------------------
+$baseLineHeight: 1 !default;

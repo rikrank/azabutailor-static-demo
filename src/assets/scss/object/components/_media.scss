@@ -1,0 +1,33 @@
+@use "../../setting/" as *;
+
+.p-media {
+  display: flex;
+  align-items: center;
+  padding: 25px 0;
+  border-bottom: 1px dashed #e2dfda;
+}
+
+.p-media__inner {
+  flex-direction: column;
+  margin-left: 16px;
+}
+
+.p-media__img {
+  img {
+    border-radius: 23px;
+  }
+}
+
+.p-media__ttl,
+.p-media__txt {
+  line-height: 1;
+}
+
+.p-media__ttl {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.p-media__txt {
+  margin-top: 16px;
+}

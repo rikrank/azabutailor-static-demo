@@ -1,0 +1,33 @@
+@use "../../setting" as *;
+
+/* ========================================
+  display
+======================================== */
+
+.u-display-sp {
+  display: block !important;
+
+  @include mq(md) {
+    display: none !important;
+  }
+}
+
+.u-display-tab {
+  display: none !important;
+
+  @include mq(md) {
+    display: block !important;
+  }
+
+  @include mq(lg) {
+    display: none !important;
+  }
+}
+
+.u-display-pc {
+  display: none !important;
+
+  @include mq(md) {
+    display: block !important;
+  }
+}
